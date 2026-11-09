@@ -1,6 +1,6 @@
 [package]
 name = "suppa-usb-analyzer"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "Native USB analyzer for Linux"
 license = "GPL-3.0-or-later"
