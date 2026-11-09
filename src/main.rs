@@ -798,6 +798,14 @@ impl SuppaUsbApp {
                     BLUE,
                     Some("https://github.com/Suppaman80/Suppa-Usb-Analyzer"),
                 );
+                ui.add_space(8.0);
+                info_card(
+                    ui,
+                    "WEBSITE",
+                    "Suppaworld project page",
+                    PINK,
+                    Some("https://suppaman80.github.io/Suppa-Usb-Analyzer/"),
+                );
             });
     }
 
