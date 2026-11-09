@@ -1,5 +1,7 @@
 # Suppa-Usb-Analyzer
 
+![Suppa-Usb-Analyzer running on Linux with connected USB devices](docs/suppa-usb-analyzer-screenshot.png)
+
 A native Rust desktop prototype exploring a lightweight alternative to the
 React/Tauri interface. It does not modify the `Gestore_USB` project.
 
