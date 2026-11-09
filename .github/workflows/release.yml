@@ -1,0 +1,98 @@
+name: Build and publish AppImage
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: Release tag matching the Cargo.toml version (for example v0.1.0)
+        required: true
+        default: v0.1.0
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache Rust dependencies
+        uses: Swatinem/rust-cache@v2
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes \
+            libegl1-mesa-dev \
+            libgl1-mesa-dev \
+            libwayland-dev \
+            libx11-dev \
+            libx11-xcb-dev \
+            libxcb1-dev \
+            libxkbcommon-dev \
+            libxrandr-dev \
+            libxcursor-dev \
+            libxi-dev \
+            libxinerama-dev
+
+      - name: Validate release tag
+        env:
+          RELEASE_TAG: ${{ inputs.tag_name }}
+        run: |
+          set -euo pipefail
+          version="$(sed -n 's/^version = "\([^"]*\)".*/\1/p' Cargo.toml | head -n 1)"
+          if [[ "$RELEASE_TAG" != "v$version" ]]; then
+            printf 'Release tag %s must match Cargo.toml version v%s\n' "$RELEASE_TAG" "$version" >&2
+            exit 1
+          fi
+          if git rev-parse --quiet --verify "refs/tags/$RELEASE_TAG" >/dev/null; then
+            tag_commit="$(git rev-list -n 1 "$RELEASE_TAG")"
+            if [[ "$tag_commit" != "$GITHUB_SHA" ]]; then
+              printf 'Existing tag %s does not point to the selected commit\n' "$RELEASE_TAG" >&2
+              exit 1
+            fi
+          fi
+
+      - name: Test
+        run: cargo test --locked
+
+      - name: Install AppImage tools
+        run: |
+          tool_cache="$HOME/.cache/tauri"
+          mkdir -p "$tool_cache"
+          curl --fail --location --silent --show-error \
+            https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage \
+            --output "$tool_cache/linuxdeploy-x86_64.AppImage"
+          curl --fail --location --silent --show-error \
+            https://github.com/linuxdeploy/linuxdeploy-plugin-appimage/releases/download/continuous/linuxdeploy-plugin-appimage-x86_64.AppImage \
+            --output "$tool_cache/linuxdeploy-plugin-appimage.AppImage"
+          chmod +x "$tool_cache/linuxdeploy-x86_64.AppImage" \
+            "$tool_cache/linuxdeploy-plugin-appimage.AppImage"
+
+      - name: Build AppImage
+        run: ./build-appimage.sh
+
+      - name: Set release asset name
+        env:
+          RELEASE_TAG: ${{ inputs.tag_name }}
+        run: |
+          version="${RELEASE_TAG#v}"
+          mv artifacts/appimage/*.AppImage \
+            "artifacts/appimage/Suppa-Usb-Analyzer_${version}_x86_64.AppImage"
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ inputs.tag_name }}
+          target_commitish: ${{ github.sha }}
+          name: Suppa-Usb-Analyzer ${{ inputs.tag_name }}
+          generate_release_notes: true
+          files: artifacts/appimage/Suppa-Usb-Analyzer_*_x86_64.AppImage

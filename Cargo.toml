@@ -1,0 +1,21 @@
+[package]
+name = "suppa-usb-analyzer"
+version = "0.1.0"
+edition = "2024"
+description = "Native USB analyzer for Linux"
+license = "GPL-3.0-or-later"
+
+[[bin]]
+name = "suppa-usb-analyzer"
+path = "src/main.rs"
+
+[dependencies]
+eframe = { version = "0.31.1", default-features = false, features = ["default_fonts", "glow", "wayland", "x11"] }
+image = { version = "0.25.10", default-features = false, features = ["png"] }
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+panic = "abort"
+strip = true

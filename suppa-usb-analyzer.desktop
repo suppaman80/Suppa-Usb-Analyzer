@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Suppa-Usb-Analyzer
+Comment=Scan USB devices and serial ports
+Exec=suppa-usb-analyzer
+Icon=suppa-usb-analyzer
+Terminal=false
+Categories=Utility;
+StartupNotify=true
+StartupWMClass=suppa-usb-analyzer
