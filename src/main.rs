@@ -810,12 +810,15 @@ impl SuppaUsbApp {
                         .size(17.0)
                         .strong(),
                 );
-                ui.label(
-                    RichText::new("USB DEVICE ANALYZER")
-                        .color(Color32::from_rgb(213, 120, 161))
-                        .size(11.0)
-                        .strong(),
-                );
+                ui.horizontal(|ui| {
+                    ui.label(
+                        RichText::new("USB DEVICE ANALYZER")
+                            .color(Color32::from_rgb(213, 120, 161))
+                            .size(11.0)
+                            .strong(),
+                    );
+                    small_badge(ui, &format!("v{}", env!("CARGO_PKG_VERSION")), BLUE);
+                });
             });
             ui.with_layout(Layout::right_to_left(Align::Center), |ui| {
                 let label = if self.scanning {

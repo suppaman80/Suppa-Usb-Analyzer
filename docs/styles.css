@@ -363,13 +363,8 @@ p {
   box-shadow:
     0 28px 75px rgba(0, 0, 0, 0.42),
     0 0 0 7px rgba(30, 31, 42, 0.38);
-  transform: perspective(1200px) rotateY(-4deg) rotateX(1deg);
 }
 
-.window-chrome,
-.preview-heading,
-.preview-list-heading,
-.preview-device,
 .feature-foot,
 .compat-card-head,
 .terminal-top,
@@ -380,222 +375,10 @@ p {
   justify-content: space-between;
 }
 
-.window-chrome {
-  min-height: 39px;
-  padding: 0 14px;
-  border-bottom: 1px solid #2c2d38;
-  background: #171820;
-}
-
-.window-dots {
-  display: flex;
-  gap: 5px;
-}
-
-.window-dots span {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #454651;
-}
-
-.window-dots span:first-child {
-  background: var(--pink);
-}
-
-.window-caption {
-  color: #777886;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-}
-
-.window-live {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: #b9b9c4;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-}
-
-.window-live i {
-  width: 5px;
-  height: 5px;
-  background: var(--green);
-  box-shadow: 0 0 9px rgba(104, 214, 167, 0.65);
-}
-
-.preview-content {
-  padding: 17px;
-}
-
-.preview-heading {
-  margin-bottom: 15px;
-}
-
-.preview-heading > div {
-  display: grid;
-  gap: 4px;
-}
-
-.preview-heading strong {
-  font-size: 12px;
-  letter-spacing: -0.02em;
-}
-
-.preview-heading > div span {
-  color: var(--pink-light);
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: 0.13em;
-}
-
-.refresh-chip {
-  display: inline-flex;
-  height: 27px;
-  align-items: center;
-  gap: 6px;
-  padding: 0 10px;
-  border: 1px solid rgba(220, 78, 137, 0.35);
-  border-radius: 6px;
-  background: rgba(220, 78, 137, 0.13);
-  color: #f3d8e4;
-  font-size: 9px;
-  font-weight: 700;
-}
-
-.refresh-chip b {
-  color: var(--pink-light);
-  font-size: 14px;
-}
-
-.preview-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin-bottom: 17px;
-}
-
-.preview-stats > div {
-  display: flex;
-  min-height: 58px;
-  align-items: center;
-  justify-content: space-between;
-  gap: 7px;
-  padding: 10px;
-  border: 1px solid #2c2d39;
-  border-radius: 7px;
-  background: #1a1b24;
-}
-
-.preview-stats span {
-  max-width: 72px;
-  color: #9b9ba9;
-  font-size: 8px;
-  font-weight: 700;
-  line-height: 1.35;
-}
-
-.preview-stats strong {
-  color: var(--pink-light);
-  font-size: 17px;
-}
-
-.preview-stats .stat-blue {
-  color: var(--blue);
-}
-
-.preview-stats .stat-green {
-  color: var(--green);
-  font-size: 12px;
-}
-
-.preview-list-heading {
-  margin: 0 1px 8px;
-}
-
-.preview-list-heading strong {
-  font-size: 10px;
-}
-
-.preview-list-heading span {
-  color: var(--muted);
-  font-size: 8px;
-}
-
-.preview-device {
-  min-height: 54px;
-  justify-content: flex-start;
-  gap: 10px;
-  margin-top: 6px;
-  padding: 7px 9px;
-  border: 1px solid #292a35;
-  border-radius: 7px;
-  background: #191a23;
-}
-
-.device-glyph {
-  display: grid;
-  width: 34px;
-  height: 34px;
-  flex: 0 0 auto;
-  place-items: center;
-  border: 1px solid rgba(220, 78, 137, 0.26);
-  border-radius: 7px;
-  background: rgba(220, 78, 137, 0.11);
-  color: var(--pink-light);
-  font-size: 13px;
-  font-weight: 800;
-}
-
-.glyph-bridge {
-  border-color: rgba(127, 181, 239, 0.24);
-  background: rgba(127, 181, 239, 0.1);
-  color: var(--blue);
-}
-
-.glyph-hub {
-  border-color: rgba(104, 214, 167, 0.24);
-  background: rgba(104, 214, 167, 0.1);
-  color: var(--green);
-}
-
-.device-copy {
-  display: grid;
-  min-width: 0;
-  flex: 1;
-  gap: 3px;
-}
-
-.device-copy strong {
-  overflow: hidden;
-  color: #e7e5ed;
-  font-size: 10px;
-  font-weight: 650;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.device-copy small {
-  color: #8c8d9b;
-  font-size: 8px;
-}
-
-.device-state {
-  padding: 4px 6px;
-  border: 1px solid #343540;
-  border-radius: 5px;
-  color: #a7a6b2;
-  font-size: 7px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-}
-
-.state-serial {
-  border-color: rgba(104, 214, 167, 0.25);
-  color: var(--green);
+.real-app-screenshot {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .preview-caption {
@@ -1377,19 +1160,6 @@ p {
   .hero-preview {
     width: 100%;
     padding-top: 0;
-  }
-
-  .app-window {
-    transform: none;
-  }
-
-  .preview-content {
-    padding: 13px;
-  }
-
-  .preview-stats > div {
-    min-height: 51px;
-    padding: 7px;
   }
 
   .intro-strip {

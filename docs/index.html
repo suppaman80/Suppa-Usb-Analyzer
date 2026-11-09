@@ -96,72 +96,17 @@
         <div class="hero-preview">
           <div class="preview-glow" aria-hidden="true"></div>
           <div class="app-window">
-            <div class="window-chrome">
-              <div class="window-dots" aria-hidden="true">
-                <span></span><span></span><span></span>
-              </div>
-              <span class="window-caption">INTERFACE PREVIEW</span>
-              <span class="window-live"><i></i> LOCAL</span>
-            </div>
-
-            <div class="preview-content">
-              <div class="preview-heading">
-                <div>
-                  <strong>Suppa-Usb-Analyzer</strong>
-                  <span>USB DEVICE ANALYZER</span>
-                </div>
-                <span class="refresh-chip"><b>↻</b> Refresh</span>
-              </div>
-
-              <div class="preview-stats">
-                <div>
-                  <span>DEVICES</span>
-                  <strong>03</strong>
-                </div>
-                <div>
-                  <span>SERIAL PORTS</span>
-                  <strong class="stat-blue">02</strong>
-                </div>
-                <div>
-                  <span>SCAN</span>
-                  <strong class="stat-green">Now</strong>
-                </div>
-              </div>
-
-              <div class="preview-list-heading">
-                <strong>Connected devices</strong>
-                <span>03 detected</span>
-              </div>
-
-              <div class="preview-device">
-                <span class="device-glyph glyph-esp">E</span>
-                <span class="device-copy">
-                  <strong>ESP32 USB Serial/JTAG</strong>
-                  <small>Port 1-2 · 303a:1001</small>
-                </span>
-                <span class="device-state state-serial">SERIAL</span>
-              </div>
-              <div class="preview-device">
-                <span class="device-glyph glyph-bridge">↔</span>
-                <span class="device-copy">
-                  <strong>CP210x USB to UART</strong>
-                  <small>Port 1-4 · 10c4:ea60</small>
-                </span>
-                <span class="device-state state-serial">SERIAL</span>
-              </div>
-              <div class="preview-device">
-                <span class="device-glyph glyph-hub">H</span>
-                <span class="device-copy">
-                  <strong>USB 3.0 Hub</strong>
-                  <small>Port 2-1 · 2109:2817</small>
-                </span>
-                <span class="device-state">USB</span>
-              </div>
-            </div>
+            <img
+              class="real-app-screenshot"
+              src="./suppa-usb-analyzer-screenshot.png"
+              alt="Real Linux screenshot of Suppa-Usb-Analyzer showing connected USB and serial devices."
+              width="1080"
+              height="790"
+            >
           </div>
           <p class="preview-caption">
             <span></span>
-            Illustrative interface preview
+            Captured from the running Linux application
           </p>
         </div>
       </section>
@@ -209,11 +154,11 @@
             <h3>USB and serial</h3>
             <p>
               View VID:PID identifiers, USB paths, and serial ports
-              <code>/dev/ttyUSB</code> e <code>/dev/ttyACM</code>.
+              <code>/dev/ttyUSB</code> and <code>/dev/ttyACM</code>.
             </p>
             <div class="feature-foot">
               <span class="feature-dot dot-blue"></span>
-              DETTAGLI TECNICI CHIARI
+              CLEAR DEVICE DETAILS
             </div>
           </article>
 
@@ -221,7 +166,7 @@
             <div class="feature-icon icon-chips" aria-hidden="true">
               <i></i><i></i><i></i><i></i>
             </div>
-            <span class="card-index">03 / IDENTIFICAZIONE</span>
+            <span class="card-index">03 / IDENTIFICATION</span>
             <h3>Recognize what you connect</h3>
             <p>
               Dedicated images and classification for embedded boards, serial
