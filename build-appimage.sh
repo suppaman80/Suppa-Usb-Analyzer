@@ -22,7 +22,7 @@ case "$(uname -m)" in
 esac
 
 TOOL_CACHE="$HOME/.cache/tauri"
-LINUXDEPLOY="$(find "$TOOL_CACHE" -maxdepth 1 -type f -name 'linuxdeploy-*-x86_64.AppImage' -print -quit)"
+LINUXDEPLOY="$(find "$TOOL_CACHE" -maxdepth 1 -type f -name 'linuxdeploy*-x86_64.AppImage' -print -quit)"
 APPIMAGE_PLUGIN="$TOOL_CACHE/linuxdeploy-plugin-appimage.AppImage"
 if [[ -z "$LINUXDEPLOY" || ! -x "$LINUXDEPLOY" || ! -x "$APPIMAGE_PLUGIN" ]]; then
   printf 'linuxdeploy or AppImage plugin not found in %s\n' "$TOOL_CACHE" >&2
