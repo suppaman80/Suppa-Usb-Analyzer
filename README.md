@@ -2,6 +2,8 @@
 
 ![Suppa-Usb-Analyzer running on Linux with connected USB devices](docs/suppa-usb-analyzer-screenshot.png)
 
+[Visit the Suppaworld project page](https://suppaman80.github.io/Suppa-Usb-Analyzer/)
+
 Suppa-Usb-Analyzer is a native Linux desktop application that scans connected
 USB devices and serial ports, presenting their details in one clear,
 searchable view.
